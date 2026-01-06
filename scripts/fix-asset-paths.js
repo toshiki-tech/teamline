@@ -32,21 +32,52 @@ htmlFiles.forEach((filePath) => {
   let content = fs.readFileSync(filePath, 'utf8')
   let modified = false
 
-  // 修复 Image 组件的 src 属性（未优化的图片路径）
-  // 匹配 src="/assets/..." 但不包含 /teamline
-  const newContent = content.replace(
-    /src="(\/assets\/[^"]+)"/g,
+  // 修复 src 属性中的路径（排除已经包含 basePath 的路径和 _next 路径）
+  content = content.replace(
+    /src="(\/[^"]+)"/g,
     (match, assetPath) => {
-      if (!assetPath.startsWith(basePath)) {
-        modified = true
-        return `src="${basePath}${assetPath}"`
+      // 跳过已经包含 basePath 的路径
+      if (assetPath.startsWith(basePath)) {
+        return match
       }
-      return match
+      // 跳过 _next 路径（Next.js 会自动处理）
+      if (assetPath.startsWith('/_next')) {
+        return match
+      }
+      // 跳过 data: 和 http(s): 协议
+      if (assetPath.startsWith('data:') || assetPath.startsWith('http')) {
+        return match
+      }
+      // 为其他根路径添加 basePath
+      modified = true
+      return `src="${basePath}${assetPath}"`
+    }
+  )
+
+  // 修复 href 属性中的静态资源路径（排除已经包含 basePath 的路径和 _next 路径）
+  content = content.replace(
+    /href="(\/[^"]+\.(png|jpg|jpeg|svg|webp|gif|css|js|pdf|zip))"/gi,
+    (match, assetPath) => {
+      // 跳过已经包含 basePath 的路径
+      if (assetPath.startsWith(basePath)) {
+        return match
+      }
+      // 跳过 _next 路径
+      if (assetPath.startsWith('/_next')) {
+        return match
+      }
+      // 跳过 http(s): 协议
+      if (assetPath.startsWith('http')) {
+        return match
+      }
+      // 为静态资源路径添加 basePath
+      modified = true
+      return `href="${basePath}${assetPath}"`
     }
   )
 
   if (modified) {
-    fs.writeFileSync(filePath, newContent, 'utf8')
+    fs.writeFileSync(filePath, content, 'utf8')
     console.log(`✅ 已修复: ${path.relative(outDir, filePath)}`)
   }
 })
