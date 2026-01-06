@@ -1,14 +1,20 @@
 /**
  * 获取 basePath
  * Next.js 在构建时会自动处理 basePath，但原生 HTML 标签（如 video）需要手动处理
+ * 
+ * basePath 从环境变量 NEXT_PUBLIC_BASE_PATH 读取
+ * - GitHub Pages 子路径部署：'/teamline'
+ * - 自定义域名部署：'' 或 '/'
  */
 export function getBasePath(): string {
   // 在运行时，从 window.location 获取
   if (typeof window !== 'undefined') {
     const pathname = window.location.pathname
+    // 动态检测 basePath（适用于 GitHub Pages 子路径部署）
     if (pathname.startsWith('/teamline')) {
       return '/teamline'
     }
+    // 自定义域名部署时，basePath 为空
     return ''
   }
   // 在服务端渲染时，从环境变量获取

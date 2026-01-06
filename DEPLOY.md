@@ -13,10 +13,14 @@
 ### 2. 配置说明
 
 ✅ **已自动配置**：
-- `next.config.js` 已配置 `basePath: '/teamline'` 和 `assetPrefix: '/teamline'`
+- `next.config.js` 已配置 `basePath`（默认 `/teamline`，可通过环境变量 `NEXT_PUBLIC_BASE_PATH` 自定义）
 - `next.config.js` 已配置 `output: 'export'` 用于静态导出
 - `next.config.js` 已配置 `images.unoptimized: true`（GitHub Pages 不支持 Next.js Image 优化）
 - GitHub Actions workflow (`.github/workflows/nextjs.yml`) 已配置自动构建和部署
+
+**basePath 配置**：
+- **默认**（GitHub Pages 子路径）：`/teamline`
+- **自定义域名**：设置环境变量 `NEXT_PUBLIC_BASE_PATH=""` 即可
 
 ### 3. 推送代码
 
@@ -35,6 +39,7 @@
 2. **静态导出**：使用 `output: 'export'` 生成纯静态文件
 3. **自动部署**：每次推送到 `master` 分支都会自动部署
 4. **构建时间**：首次部署可能需要几分钟，后续会更快
+5. **自定义域名**：如需使用自定义域名部署，请参考 `DEPLOY-CUSTOM-DOMAIN.md`
 
 ## 手动触发部署
 

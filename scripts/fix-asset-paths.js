@@ -2,14 +2,31 @@
 
 /**
  * 修复构建后的 HTML 文件中的资源路径
- * 为所有 /assets/ 开头的路径添加 /teamline 前缀
+ * 为所有根路径资源添加 basePath 前缀
+ * 
+ * basePath 从环境变量 NEXT_PUBLIC_BASE_PATH 读取
+ * - GitHub Pages 子路径部署：'/teamline'
+ * - 自定义域名部署：'' 或 '/'（此时不执行路径修复）
  */
 
 const fs = require('fs')
 const path = require('path')
 
-const basePath = '/teamline'
+// 从环境变量读取 basePath，与 next.config.js 保持一致
+// 如果环境变量未设置，使用默认值 '/teamline'
+// 如果环境变量设置为空字符串，表示自定义域名部署，basePath 为空
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH !== undefined 
+  ? process.env.NEXT_PUBLIC_BASE_PATH 
+  : '/teamline'
 const outDir = path.join(process.cwd(), 'out')
+
+// 如果 basePath 为空或 '/'，则不需要修复路径（自定义域名部署）
+if (!basePath || basePath === '/') {
+  console.log('ℹ️  basePath 为空，跳过路径修复（适用于自定义域名部署）')
+  process.exit(0)
+}
+
+console.log(`🔧 使用 basePath: ${basePath}`)
 
 // 递归查找所有 HTML 文件
 function findHtmlFiles(dir, fileList = []) {
