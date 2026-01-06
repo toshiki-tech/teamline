@@ -95,8 +95,8 @@ export default function Footer() {
 
         {/* 版权信息 */}
         <div className="pt-8 mt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+          <p>© 2002-2025 北京天昊润蓝广告有限公司</p>
           <p>
-            © 2002-2025 北京天昊润蓝广告有限公司{' '}
             <a
               href="https://beian.miit.gov.cn/"
               target="_blank"

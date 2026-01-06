@@ -14,7 +14,11 @@ import Image from 'next/image'
  */
 export default function Logo() {
   return (
-    <Link href="/" className="inline-flex items-center">
+    <Link 
+      href="/" 
+      className="inline-flex items-center transition-opacity duration-200 hover:opacity-80"
+      aria-label="返回首页"
+    >
       <Image
         src="/logo.png"
         alt="天昊润蓝 Teamline"
