@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
+import BaseImage from '@/components/BaseImage'
 
 interface CaseImageGalleryProps {
   images: string[]
@@ -126,7 +126,7 @@ export default function CaseImageGallery({
                 className="relative w-full flex-shrink-0"
                 style={{ aspectRatio: '16/9' }}
               >
-                <Image
+                <BaseImage
                   src={img}
                   alt={`${title} ${index + 1}`}
                   fill
@@ -209,7 +209,7 @@ export default function CaseImageGallery({
             className="relative aspect-video rounded-lg overflow-hidden shadow-lg cursor-pointer group"
             onClick={() => openLightbox(0)}
           >
-            <Image
+            <BaseImage
               src={images[0]}
               alt={`${title} 主图`}
               fill
@@ -240,7 +240,7 @@ export default function CaseImageGallery({
                   className="relative aspect-video rounded-lg overflow-hidden shadow-md cursor-pointer group"
                   onClick={() => openLightbox(index + 1)}
                 >
-                  <Image
+                  <BaseImage
                     src={img}
                     alt={`${title} ${index + 2}`}
                     fill
@@ -262,7 +262,7 @@ export default function CaseImageGallery({
                       <div className="text-sm text-text-light">查看更多</div>
                     </div>
                   </div>
-                  <Image
+                  <BaseImage
                     src={images[4]}
                     alt={`${title} 更多`}
                     fill
@@ -304,7 +304,7 @@ export default function CaseImageGallery({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative w-full h-full flex items-center justify-center">
-              <Image
+              <BaseImage
                 src={images[lightboxIndex]}
                 alt={`${title} ${lightboxIndex + 1}`}
                 fill
