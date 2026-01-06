@@ -26,24 +26,27 @@ if (!basePath || basePath === '/') {
 
 console.log(`🔧 使用 basePath: ${basePath}`)
 
-// 递归查找所有 HTML 文件
-function findHtmlFiles(dir, fileList = []) {
+// 递归查找所有需要修复的文本文件（HTML + RSC payload 等）
+function findTextFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir)
   files.forEach((file) => {
     const filePath = path.join(dir, file)
     const stat = fs.statSync(filePath)
     if (stat.isDirectory()) {
-      findHtmlFiles(filePath, fileList)
-    } else if (file.endsWith('.html')) {
+      findTextFiles(filePath, fileList)
+      return
+    }
+    // 仅处理文本文件：html / txt（Next.js export 的 RSC payload）
+    if (file.endsWith('.html') || file.endsWith('.txt')) {
       fileList.push(filePath)
     }
   })
   return fileList
 }
 
-const htmlFiles = findHtmlFiles(outDir)
+const textFiles = findTextFiles(outDir)
 
-htmlFiles.forEach((filePath) => {
+textFiles.forEach((filePath) => {
   let content = fs.readFileSync(filePath, 'utf8')
   let modified = false
 
@@ -71,10 +74,22 @@ htmlFiles.forEach((filePath) => {
     }
   )
 
+  // 修复 RSC payload / 其他文本内容中的静态资源路径（重点：/assets、/logo）
+  // 例如："src":"/assets/images/..."、"images":["/assets/..."]、"href":"/logo.png"
+  const before = content
+  content = content
+    .replace(/"\/assets\//g, `"${basePath}/assets/`)
+    .replace(/'\/assets\//g, `'${basePath}/assets/`)
+    .replace(/\(\/assets\//g, `(${basePath}/assets/`)
+    .replace(/"\/logo\./g, `"${basePath}/logo.`)
+    .replace(/'\/logo\./g, `'${basePath}/logo.`)
+    .replace(/\(\/logo\./g, `(${basePath}/logo.`)
+  if (content !== before) modified = true
+
   if (modified) {
     fs.writeFileSync(filePath, content, 'utf8')
     console.log(`✅ 已修复: ${path.relative(outDir, filePath)}`)
   }
 })
 
-console.log(`\n✅ 已处理 ${htmlFiles.length} 个 HTML 文件`)
+console.log(`\n✅ 已处理 ${textFiles.length} 个文本文件（html/txt）`)
