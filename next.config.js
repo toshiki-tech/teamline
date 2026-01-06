@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 // 从环境变量读取 basePath
-// - 未设置：默认为 '/teamline'（GitHub Pages 子路径部署）
-// - 设置为空字符串：自定义域名部署，basePath 为空
-// - 设置为其他值：使用该值作为 basePath
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH !== undefined 
-  ? process.env.NEXT_PUBLIC_BASE_PATH 
-  : '/teamline'
+// - 未设置：默认为 ''（本地和自定义域名部署走根路径 / ）
+// - 在 GitHub Pages 构建时：通过 NEXT_PUBLIC_BASE_PATH='/teamline' 注入
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH !== undefined
+  ? process.env.NEXT_PUBLIC_BASE_PATH
+  : ''
 
 const nextConfig = {
   output: 'export',
@@ -16,9 +15,9 @@ const nextConfig = {
     loaderFile: './lib/imageLoader.js',
   },
   // basePath 配置
-  // - GitHub Pages 子路径部署：'/teamline'
-  // - 自定义域名部署：'' 或 '/'
-  basePath: basePath,
+  // - 本地 / 自定义域名：''（根路径）
+  // - GitHub Pages 子路径：'/teamline'（通过环境变量注入）
+  basePath,
   assetPrefix: basePath,
   trailingSlash: true, // 确保所有路径以斜杠结尾，避免路径解析问题
 }

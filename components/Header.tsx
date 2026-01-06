@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Logo from './Logo'
+import { getBasePath } from '@/lib/basePath'
 
 const navItems = [
   { href: '/', label: '首页' },
@@ -17,6 +18,10 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  
+  // 获取 basePath 并规范化 pathname 用于比较
+  const basePath = getBasePath()
+  const normalizedPathname = pathname.replace(basePath, '') || '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +47,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex md:items-center md:space-x-1 md:h-full">
             {navItems.map((item) => {
-              const isActive = pathname === item.href
+              const isActive = normalizedPathname === item.href
               return (
                 <li key={item.href} className="h-full flex items-center">
                   <Link
@@ -89,7 +94,7 @@ export default function Header() {
           <div className="md:hidden border-t border-white/20 py-4">
             <ul className="space-y-1">
               {navItems.map((item) => {
-                const isActive = pathname === item.href
+                const isActive = normalizedPathname === item.href
                 return (
                   <li key={item.href}>
                     <Link
