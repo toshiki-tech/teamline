@@ -92,4 +92,15 @@ textFiles.forEach((filePath) => {
   }
 })
 
+// 确保验证文件等 public 目录下的文件在正确位置
+// Next.js 静态导出时，public 目录下的文件会被复制到 out 目录根目录
+// 当使用 basePath 时，这些文件应该可以通过 /teamline/文件名 访问
+// 但为了确保兼容性，我们检查一下验证文件是否存在
+const verificationFile = path.join(outDir, '59f95d1e1ec2a0af424fdf896c0d55c5.txt')
+if (fs.existsSync(verificationFile)) {
+  console.log('✅ 验证文件已存在于输出目录')
+} else {
+  console.log('⚠️  警告：验证文件不存在于输出目录')
+}
+
 console.log(`\n✅ 已处理 ${textFiles.length} 个文本文件（html/txt）`)
