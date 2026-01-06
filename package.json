@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "touch ./out/.nojekyll && node scripts/fix-asset-paths.js",
     "start": "next start",
     "lint": "next lint"
   },

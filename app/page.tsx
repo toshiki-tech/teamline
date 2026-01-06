@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { withBasePath } from '@/lib/basePath'
 
 export default function Home() {
   return (
@@ -12,9 +15,9 @@ export default function Home() {
           muted
           loop
           playsInline
-          poster="/assets/images/poster.jpg"
+          poster={withBasePath('/assets/images/poster.jpg')}
         >
-          <source src="/assets/videos/hero-video.mp4" type="video/mp4" />
+          <source src={withBasePath('/assets/videos/hero-video.mp4')} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/50 z-[1]" />
         <div className="relative z-[2] text-center py-16 container-custom">
