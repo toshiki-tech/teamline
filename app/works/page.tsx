@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import BaseImage from '@/components/BaseImage'
 import { casesData, categories, Case } from '@/lib/cases-data'
 
 export default function WorksPage() {
@@ -18,7 +19,7 @@ export default function WorksPage() {
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center text-white overflow-hidden bg-gray-900">
         <div className="absolute inset-0 z-0 flex items-center justify-center">
-          <Image
+          <BaseImage
             src="/assets/images/cases/cases-hero.jpg"
             alt="成功案例"
             fill
