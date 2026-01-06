@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import BaseImage from '@/components/BaseImage'
 import { casesData, categories, Case } from '@/lib/cases-data'
 
@@ -65,7 +64,7 @@ export default function WorksPage() {
                 className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow group"
               >
                 <div className="relative aspect-video overflow-hidden">
-                  <Image
+                  <BaseImage
                     src={item.image}
                     alt={item.title}
                     fill
