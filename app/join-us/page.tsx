@@ -23,22 +23,15 @@ const jobs = [
   },
   {
     id: 2,
-    title: '文案',
+    title: '平面设计师',
     type: '全职',
     requirements: {
-      title: '职位职责：',
-      items: [
-        '负责品牌社会化营销的创意策划，能高效地完成创意方案（PPT），且方案逻辑清晰',
-        '能够精准地洞察市场和消费者，结合客户需求，提供完整的策划方案',
-        '根据客户部的Brief完成但不限于H5、视频脚本、线下活动等的内容创意',
-        '在方案执行中，与各部门沟通确保创意内容的完整呈现',
-      ],
-    },
-    requirements2: {
       title: '职位要求：',
       items: [
-        '具有良好的文字功底，广告行业1年以上的工作经历',
-        '本科以上学历，市场、广告、中文等相关专业毕业',
+        '有良好的创意构思，具备跃动的思维，完美的色感，敏锐的洞察力和行动能力',
+        '具备优异的设计能力，能把根据客户要求延展创意并制作设计稿',
+        '能够熟练使用平面设计相关软件和一定的手绘能力',
+        '本科及以上学历，视觉传达、美术、平面设计等相关专业',
       ],
     },
   },
@@ -66,15 +59,22 @@ const jobs = [
   },
   {
     id: 4,
-    title: '平面设计师',
+    title: '文案',
     type: '全职',
     requirements: {
+      title: '职位职责：',
+      items: [
+        '负责品牌社会化营销的创意策划，能高效地完成创意方案（PPT），且方案逻辑清晰',
+        '能够精准地洞察市场和消费者，结合客户需求，提供完整的策划方案',
+        '根据客户部的Brief完成但不限于H5、视频脚本、线下活动等的内容创意',
+        '在方案执行中，与各部门沟通确保创意内容的完整呈现',
+      ],
+    },
+    requirements2: {
       title: '职位要求：',
       items: [
-        '有良好的创意构思，具备跃动的思维，完美的色感，敏锐的洞察力和行动能力',
-        '具备优异的设计能力，能把根据客户要求延展创意并制作设计稿',
-        '能够熟练使用平面设计相关软件和一定的手绘能力',
-        '本科及以上学历，视觉传达、美术、平面设计等相关专业',
+        '具有良好的文字功底，广告行业1年以上的工作经历',
+        '本科以上学历，市场、广告、中文等相关专业毕业',
       ],
     },
   },
@@ -147,23 +147,23 @@ export default function JoinUsPage() {
           </div>
         </div>
         <div className="relative z-10 text-center py-16 container-custom">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-text"></h1>
-          <p className="text-xl md:text-2xl text-text-light">
-            
-          </p>
+          {/* Hero区域仅显示图片，文字已移至下方 */}
         </div>
       </section>
 
       {/* Intro Section */}
       <section className="py-16 md:py-24">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-text mb-6">
-              加入我们，与专业团队一起，创造品牌价值
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="text-center mb-12">
+              <h2 className="heading-section text-text mb-6">
+                加入我们
               </h2>
+              <p className="text-lead text-text-light mb-12 max-w-2xl mx-auto">
+                与专业团队一起，创造品牌价值
+              </p>
             </div>
-            <div className="space-y-4 text-text-light text-lg text-center">
+            <div className="space-y-6 text-body-lg text-left">
               <p>
                 天昊润蓝是一家专业的广告传播服务公司，我们致力于为客户提供优质的品牌策划、视觉创意、数字营销等服务。如果您热爱创意、追求卓越，欢迎加入我们的团队。
               </p>
@@ -175,11 +175,11 @@ export default function JoinUsPage() {
 
           {/* Jobs Section */}
           <div className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+            <div className="text-center mb-16">
+              <h2 className="heading-section text-text mb-6">
                 招聘职位
               </h2>
-              <p className="text-xl text-text-light">
+              <p className="text-lead text-text-light max-w-2xl mx-auto">
                 我们正在寻找志同道合的伙伴
               </p>
             </div>
@@ -187,57 +187,62 @@ export default function JoinUsPage() {
               {jobs.map((job) => (
                 <div
                   key={job.id}
-                  className="bg-white border border-border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                  className="bg-white border border-border rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
                 >
-                  <div className="p-6 border-b border-border">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-2xl font-bold text-text">
+                  {/* 标题区域 */}
+                  <div className="p-6 border-b border-border bg-white">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-2xl font-bold text-text tracking-tight">
                         {job.title}
                       </h3>
-                      <span className="px-3 py-1 bg-accent text-white text-sm rounded-full">
+                      <span className="px-3 py-1.5 bg-accent text-white text-sm font-medium rounded-full whitespace-nowrap">
                         {job.type}
                       </span>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <div className="mb-4">
-                      <h4 className="text-lg font-semibold text-text mb-3">
+                  
+                  {/* 内容区域 - 使用flex-grow确保对齐 */}
+                  <div className="p-6 flex-grow flex flex-col">
+                    <div className="mb-6">
+                      <h4 className="text-base font-semibold text-text mb-4 tracking-tight">
                         {job.requirements.title}
                       </h4>
-                      <ul className="space-y-2 text-text-light">
+                      <ul className="space-y-2.5">
                         {job.requirements.items.map((item, index) => (
-                          <li key={index} className="flex items-start">
-                            <span className="text-accent mr-2">•</span>
-                            <span>{item}</span>
+                          <li key={index} className="flex items-start text-body leading-relaxed">
+                            <span className="text-accent mr-3 mt-1 flex-shrink-0">•</span>
+                            <span className="flex-1">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     {job.requirements2 && (
                       <div className="mt-6">
-                        <h4 className="text-lg font-semibold text-text mb-3">
+                        <h4 className="text-base font-semibold text-text mb-4 tracking-tight">
                           {job.requirements2.title}
                         </h4>
-                        <ul className="space-y-2 text-text-light">
+                        <ul className="space-y-2.5">
                           {job.requirements2.items.map((item, index) => (
-                            <li key={index} className="flex items-start">
-                              <span className="text-accent mr-2">•</span>
-                              <span>{item}</span>
+                            <li key={index} className="flex items-start text-body leading-relaxed">
+                              <span className="text-accent mr-3 mt-1 flex-shrink-0">•</span>
+                              <span className="flex-1">{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     )}
                   </div>
-                  <div className="p-6 bg-gray-50 border-t border-border">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  
+                  {/* 底部操作区域 */}
+                  <div className="p-6 bg-gray-50 border-t border-border mt-auto">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                       <a
                         href={`mailto:hr@teamline.cn?subject=应聘-${job.title}`}
-                        className="px-6 py-2 bg-accent text-white rounded hover:bg-accent/90 transition-colors text-center"
+                        className="px-6 py-2.5 bg-accent text-white rounded font-medium hover:bg-accent/90 transition-colors text-center whitespace-nowrap"
                       >
                         投递简历
                       </a>
-                      <span className="text-text-light text-sm">
+                      <span className="text-text-light text-sm text-center sm:text-right">
                         hr@teamline.cn
                       </span>
                     </div>
@@ -250,7 +255,7 @@ export default function JoinUsPage() {
           {/* Benefits Section */}
           <div className="mb-16 bg-gray-50 py-16 rounded-lg">
             <div className="container-custom">
-              <h2 className="text-3xl md:text-4xl font-bold text-text mb-12 text-center">
+              <h2 className="heading-section text-text mb-16 text-center">
                 我们提供
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -262,10 +267,10 @@ export default function JoinUsPage() {
                     <div className="w-16 h-16 text-accent mx-auto mb-4">
                       {benefit.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-text mb-3">
+                    <h3 className="text-xl font-semibold text-text mb-4 tracking-tight">
                       {benefit.title}
                     </h3>
-                    <p className="text-text-light">{benefit.description}</p>
+                    <p className="text-body">{benefit.description}</p>
                   </div>
                 ))}
               </div>
@@ -273,37 +278,76 @@ export default function JoinUsPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-primary text-white py-16 rounded-lg">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              期待您的加入
-            </h2>
-            <p className="text-xl opacity-95 mb-8">
-              请将简历和作品发送至我们的邮箱
-            </p>
-            <div className="mb-8">
-              <a
-                href="mailto:hr@teamline.cn"
-                className="inline-flex items-center gap-3 text-xl font-semibold hover:text-accent transition-colors"
-              >
-                <svg
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
+          <div className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50"></div>
+            <div className="relative max-w-4xl mx-auto bg-white border-2 border-gray-200 rounded-2xl shadow-xl p-12 md:p-16">
+              <div className="text-center">
+                {/* 装饰性图标 */}
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent/10 mb-8">
+                  <svg
+                    className="w-10 h-10 text-accent"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                
+                <h2 className="heading-section text-text mb-6">
+                  期待您的加入
+                </h2>
+                <p className="text-lead text-text-light mb-10 max-w-2xl mx-auto">
+                  请将简历和作品发送至我们的邮箱
+                </p>
+                
+                {/* 邮箱链接 - 大按钮样式 */}
+                <div className="mb-8">
+                  <a
+                    href="mailto:hr@teamline.cn"
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    hr@teamline.cn
+                  </a>
+                </div>
+                
+                {/* 分隔线 */}
+                <div className="flex items-center justify-center gap-4 mb-8">
+                  <div className="flex-1 h-px bg-gray-200"></div>
+                  <span className="text-text-lighter text-sm">或</span>
+                  <div className="flex-1 h-px bg-gray-200"></div>
+                </div>
+                
+                {/* 了解更多链接 */}
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors font-medium"
                 >
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                hr@teamline.cn
-              </a>
+                  了解更多公司信息
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
-            <Link
-              href="/about"
-              className="inline-block px-6 py-3 border-2 border-white text-white rounded hover:bg-white hover:text-primary transition-colors"
-            >
-              了解更多公司信息
-            </Link>
           </div>
         </div>
       </section>

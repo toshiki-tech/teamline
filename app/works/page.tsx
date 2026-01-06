@@ -28,8 +28,8 @@ export default function WorksPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center py-16 container-custom">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">成功案例</h1>
-          <p className="text-xl md:text-2xl opacity-95">
+          <h1 className="heading-hero mb-6 text-white">成功案例</h1>
+          <p className="text-xl md:text-2xl opacity-95 text-white leading-relaxed tracking-wide">
             精选项目展示，见证我们的专业能力
           </p>
         </div>
@@ -77,10 +77,10 @@ export default function WorksPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-text mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-semibold text-text mb-3 group-hover:text-accent transition-colors tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-text-light line-clamp-2">
+                  <p className="text-body line-clamp-2">
                     {item.description}
                   </p>
                 </div>

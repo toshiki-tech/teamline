@@ -27,8 +27,8 @@ export default function ServicesPage() {
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-text">我们的服务</h1>
-            <p className="text-xl md:text-2xl text-text-light">
+            <h1 className="heading-section text-text mb-6">专业服务</h1>
+            <p className="text-lead text-text-light max-w-2xl mx-auto">
               专业的广告传播服务，为品牌创造价值
             </p>
           </div>
@@ -48,10 +48,10 @@ export default function ServicesPage() {
                 <div className="w-16 h-16 text-accent mb-6">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-semibold text-text mb-4">
+                <h3 className="heading-subsection text-text mb-5">
                   {service.title}
                 </h3>
-                <p className="text-text-light mb-6 leading-relaxed">
+                <p className="text-body mb-6">
                   {service.description}
                 </p>
                 <ul className="space-y-2">
@@ -73,10 +73,10 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-bg-alt">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+          <h2 className="heading-section text-text mb-6">
             需要专业服务？
           </h2>
-          <p className="text-lg text-text-light mb-8">
+          <p className="text-lead text-text-light mb-10 max-w-2xl mx-auto">
             联系我们，获取专业的品牌解决方案
           </p>
           <a

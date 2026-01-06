@@ -47,7 +47,7 @@ export default function Header() {
                 <li key={item.href} className="h-full flex items-center">
                   <Link
                     href={item.href}
-                    className={`h-full flex items-center px-4 text-white transition-colors duration-200 ${
+                    className={`h-full flex items-center px-4 text-white transition-colors duration-200 font-medium tracking-wide ${
                       isActive
                         ? 'bg-accent'
                         : 'hover:bg-white/10'

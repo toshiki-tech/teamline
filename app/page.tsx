@@ -18,10 +18,10 @@ export default function Home() {
         </video>
         <div className="absolute inset-0 bg-black/50 z-[1]" />
         <div className="relative z-[2] text-center py-16 container-custom">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="heading-hero mb-6 text-white">
             让客户期待更多 为品牌服务更久
           </h1>
-          <p className="text-xl md:text-2xl mb-12 opacity-95">
+          <p className="text-xl md:text-2xl mb-12 opacity-95 text-white leading-relaxed tracking-wide">
             每一次 让客户多收获10%
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -44,11 +44,11 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-16 md:py-24" id="services">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text mb-4">
+          <div className="text-center mb-16">
+            <h2 className="heading-section text-text mb-6">
               我们的服务
             </h2>
-            <p className="text-lg text-text-light">
+            <p className="text-lead text-text-light max-w-2xl mx-auto">
               专业的广告传播服务，为品牌创造价值
             </p>
           </div>
@@ -58,11 +58,11 @@ export default function Home() {
                 key={service.id}
                 className="bg-white p-8 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 text-accent mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-text mb-3">
+                <div className="w-12 h-12 text-accent mb-6">{service.icon}</div>
+                <h3 className="heading-subsection text-text mb-4">
                   {service.title}
                 </h3>
-                <p className="text-text-light mb-4">{service.description}</p>
+                <p className="text-body mb-6">{service.description}</p>
                 <Link
                   href={`/services#${service.id}`}
                   className="text-accent hover:underline inline-flex items-center"
@@ -78,11 +78,11 @@ export default function Home() {
       {/* Featured Cases Section */}
       <section className="py-16 md:py-24 bg-bg-alt" id="cases">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text mb-4">
+          <div className="text-center mb-16">
+            <h2 className="heading-section text-text mb-6">
               成功案例
             </h2>
-            <p className="text-lg text-text-light">
+            <p className="text-lead text-text-light max-w-2xl mx-auto">
               精选项目展示，见证我们的专业能力
             </p>
           </div>
@@ -106,10 +106,10 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-text mb-2">
+                  <h3 className="text-xl font-semibold text-text mb-3 tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-text-light mb-4">{item.description}</p>
+                  <p className="text-body mb-4">{item.description}</p>
                   <Link
                     href={`/works/${item.id}`}
                     className="text-accent hover:underline inline-flex items-center"
@@ -134,11 +134,11 @@ export default function Home() {
       {/* Company Advantages Section */}
       <section className="py-16 md:py-24" id="advantages">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text mb-4">
+          <div className="text-center mb-16">
+            <h2 className="heading-section text-text mb-6">
               我们的优势
             </h2>
-            <p className="text-lg text-text-light">专业、创新、值得信赖</p>
+            <p className="text-lead text-text-light max-w-2xl mx-auto">专业、创新、值得信赖</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {advantages.map((item) => (
@@ -149,10 +149,10 @@ export default function Home() {
                 <div className="w-16 h-16 text-accent mx-auto mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-text mb-3">
+                <h3 className="text-xl font-semibold text-text mb-3 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-text-light">{item.description}</p>
+                <p className="text-body">{item.description}</p>
               </div>
             ))}
           </div>
@@ -162,17 +162,20 @@ export default function Home() {
       {/* About Section */}
       <section className="py-16 md:py-24 bg-bg-alt" id="about">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-text mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+            <div className="flex flex-col">
+              <h2 className="heading-section text-text mb-8">
                 天昊润蓝
               </h2>
-              <div className="space-y-4 text-text-light">
+              <div className="space-y-6 text-body-lg flex-grow flex flex-col justify-center">
                 <p>
-                  天昊润蓝成立于2002年，注册资本1100万元，现拥有员工30余人，办公面积合计近五百平米。
+                  天昊润蓝成立于2002年，23年深耕广告传播领域，现拥有30余人的专业团队，注册资本1100万元，办公面积近500平米。我们以专业的服务能力和创新的设计理念，为品牌创造价值。
                 </p>
                 <p>
-                  天昊润蓝成立至今与多家金融企业、政府单位及互联网企业深度合作，共同成长，树立了业内良好口碑。天昊润蓝主营设计、制作、代理国内及外商来华广告，组织文化艺术交流活动。以科学的管理机制和良好的专业水准，形成了企业核心竞争力；以"客户至上，创造至上，立足本土，放眼世界"的目标与理念，与众多客户和媒体建立了密切的合作关系，是目前国内优秀的专注于广告传播服务的公司之一。
+                  成立至今，我们与众多金融企业、政府单位及互联网企业建立了深度合作关系，在品牌策划、视觉创意、数字营销等领域积累了丰富经验。我们主营设计、制作、代理国内外广告业务，组织文化艺术交流活动，以科学的管理机制和卓越的专业水准，形成了独特的核心竞争力。
+                </p>
+                <p className="font-medium text-text">
+                  "客户至上，创造至上，立足本土，放眼世界"——这是我们的理念，也是我们与每一位合作伙伴共同成长的承诺。
                 </p>
               </div>
               <Link
@@ -182,9 +185,9 @@ export default function Home() {
                 了解更多
               </Link>
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-md">
+            <div className="relative min-h-[400px] lg:h-full rounded-lg overflow-hidden shadow-md">
               <Image
-                src="/assets/images/about/index_04.jpg"
+                src="/assets/images/about/about.jpg"
                 alt="天昊润蓝"
                 fill
                 className="object-cover"
