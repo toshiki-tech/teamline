@@ -68,9 +68,14 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
-          NEXT_PUBLIC_BASE_PATH: '/teamline'
+          NEXT_PUBLIC_BASE_PATH: /teamline
+        run: |
+          if [ "${{ steps.detect-package-manager.outputs.manager }}" = "yarn" ]; then
+            yarn build
+          else
+            npm run build
+          fi
       - name: Create .nojekyll file
         run: touch ./out/.nojekyll
       - name: Upload artifact
