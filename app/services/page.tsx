@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata = {
   title: '服务 - 天昊润蓝 Teamline',
@@ -79,12 +80,12 @@ export default function ServicesPage() {
           <p className="text-lead text-text-light mb-10 max-w-2xl mx-auto">
             联系我们，获取专业的品牌解决方案
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-flex items-center justify-center px-8 py-3 bg-accent text-white rounded font-medium hover:bg-accent/90 transition-all"
           >
             免费咨询
-          </a>
+          </Link>
         </div>
       </section>
     </>
