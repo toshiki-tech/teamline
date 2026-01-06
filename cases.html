@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="天昊润蓝成功案例展示：品牌策划、视觉创意、数字营销、空间展示、交互视觉等专业案例">
+    <title>案例 - 天昊润蓝 Teamline</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cases.css">
+</head>
+<body>
+    <!-- 1. Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="天昊润蓝 Teamline" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item"><a href="index.html" class="nav__link">首页</a></li>
+                <li class="nav__item"><a href="cases.html" class="nav__link nav__link--active">案例</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">服务</a></li>
+                <li class="nav__item"><a href="sharing.html" class="nav__link">分享</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">关于我们</a></li>
+                <li class="nav__item"><a href="join-us.html" class="nav__link">加入我们</a></li>
+            </ul>
+            <button class="nav__toggle" id="nav-toggle" aria-label="切换导航菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero hero--page">
+            <div class="hero__overlay"></div>
+            <div class="hero__content container">
+                <h1 class="hero__title">成功案例</h1>
+                <p class="hero__subtitle">精选项目展示，见证我们的专业能力</p>
+            </div>
+        </section>
+
+        <!-- Cases Section -->
+        <section class="cases-page section">
+            <div class="container">
+                <!-- Filter Tabs -->
+                <div class="cases-filter">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="brand">品牌策划</button>
+                    <button class="filter-btn" data-filter="visual">视觉创意</button>
+                    <button class="filter-btn" data-filter="digital">数字营销</button>
+                    <button class="filter-btn" data-filter="space">空间展示</button>
+                    <button class="filter-btn" data-filter="interaction">交互视觉</button>
+                    <button class="filter-btn" data-filter="pr">公关策划</button>
+                </div>
+
+                <!-- Cases Grid -->
+                <div class="cases-grid" id="cases-grid">
+                    <!-- 案例项将通过 JavaScript 动态加载 -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="cases-load-more">
+                    <button class="btn btn--outline" id="load-more-btn">加载更多</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Case Detail Modal -->
+    <div class="modal" id="case-modal">
+        <div class="modal__overlay" id="modal-overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="modal-close">&times;</button>
+            <div class="modal__body" id="modal-body">
+                <!-- 详情内容将通过 JavaScript 动态加载 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__column">
+                    <h3 class="footer__title">快速链接</h3>
+                    <ul class="footer__links">
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="services.html">服务</a></li>
+                        <li><a href="cases.html">案例</a></li>
+                        <li><a href="join-us.html">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">联系方式</h3>
+                    <div class="footer__contact">
+                        <p>地址：北京市宣武区白纸坊西街20号圣都大厦310室</p>
+                        <p>邮编：100054</p>
+                        <p>邮箱：hr@teamline.cn</p>
+                        <p>网址：https://www.teamline.cn</p>
+                    </div>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">关注我们</h3>
+                    <div class="footer__social">
+                        <p>敬请期待</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>版权所有 copyright（c）2019-2024 北京天昊润蓝广告有限公司 京ICP备09012609号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/cases.js"></script>
+</body>
+</html>
+

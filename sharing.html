@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="天昊润蓝分享：设计趋势、行业洞察、创意灵感、专业知识分享">
+    <title>分享 - 天昊润蓝 Teamline</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sharing.css">
+</head>
+<body>
+    <!-- 1. Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="天昊润蓝 Teamline" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item"><a href="index.html" class="nav__link">首页</a></li>
+                <li class="nav__item"><a href="cases.html" class="nav__link">案例</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">服务</a></li>
+                <li class="nav__item"><a href="sharing.html" class="nav__link nav__link--active">分享</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">关于我们</a></li>
+                <li class="nav__item"><a href="join-us.html" class="nav__link">加入我们</a></li>
+            </ul>
+            <button class="nav__toggle" id="nav-toggle" aria-label="切换导航菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero hero--page">
+            <div class="hero__overlay"></div>
+            <div class="hero__content container">
+                <h1 class="hero__title">分享与洞察</h1>
+                <p class="hero__subtitle">设计趋势、行业洞察、创意灵感</p>
+            </div>
+        </section>
+
+        <!-- Sharing List Section -->
+        <section class="sharing section">
+            <div class="container">
+                <div class="sharing__filters" id="sharing-filters">
+                    <button class="filter-btn filter-btn--active" data-category="all">全部</button>
+                    <button class="filter-btn" data-category="design">设计趋势</button>
+                    <button class="filter-btn" data-category="brand">品牌案例</button>
+                    <button class="filter-btn" data-category="inspiration">创意灵感</button>
+                </div>
+
+                <div class="sharing__grid" id="sharing-grid">
+                    <!-- 文章卡片将通过 JavaScript 动态加载 -->
+                </div>
+
+                <div class="sharing__pagination" id="sharing-pagination">
+                    <!-- 分页将通过 JavaScript 动态生成 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <p>地址：北京市宣武区白纸坊西街20号圣都大厦310室</p>
+                    <p>邮编：100054</p>
+                    <p>网址：https://www.teamline.cn</p>
+                </div>
+                <div class="footer__copyright">
+                    <p>版权所有 copyright（c）2019-2022 北京天昊润蓝广告有限公司</p>
+                    <p><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备09012609号</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/sharing.js"></script>
+</body>
+</html>
+
