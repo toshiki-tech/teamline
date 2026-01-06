@@ -22,13 +22,13 @@ export default function Footer() {
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-accent transition-colors text-sm flex items-center group">
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300 mr-0 group-hover:mr-2"></span>
-                  服务
+                  专业服务
                 </Link>
               </li>
               <li>
                 <Link href="/works" className="text-gray-400 hover:text-accent transition-colors text-sm flex items-center group">
                   <span className="w-0 group-hover:w-2 h-0.5 bg-accent transition-all duration-300 mr-0 group-hover:mr-2"></span>
-                  案例
+                  成功案例
                 </Link>
               </li>
               <li>
