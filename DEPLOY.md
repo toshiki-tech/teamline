@@ -10,18 +10,13 @@
    - **Source**: `GitHub Actions`
 4. 保存设置
 
-### 2. 配置 basePath（如果需要）
+### 2. 配置说明
 
-如果你的仓库名称是 `username.github.io`，则**不需要**配置 basePath。
-
-如果你的仓库名称是其他名称（如 `teamline`），需要：
-
-1. 打开 `next.config.js`
-2. 取消注释以下两行：
-   ```javascript
-   basePath: '/teamline',
-   assetPrefix: '/teamline',
-   ```
+✅ **已自动配置**：
+- `next.config.js` 已配置 `basePath: '/teamline'` 和 `assetPrefix: '/teamline'`
+- `next.config.js` 已配置 `output: 'export'` 用于静态导出
+- `next.config.js` 已配置 `images.unoptimized: true`（GitHub Pages 不支持 Next.js Image 优化）
+- GitHub Actions workflow (`.github/workflows/nextjs.yml`) 已配置自动构建和部署
 
 ### 3. 推送代码
 
@@ -31,8 +26,8 @@
 
 ### 4. 访问网站
 
-- 如果仓库名是 `username.github.io`：https://username.github.io
-- 如果仓库名是其他名称：https://username.github.io/teamline
+部署成功后，网站地址为：
+**https://toshiki-tech.github.io/teamline**
 
 ## 注意事项
 
